@@ -21,8 +21,8 @@ from collections import defaultdict
 class Solution:
     def firstUniqChar(self, s: str) -> int:
         character_count = defaultdict(int)
-        for c in s:
-            character_count[c] += 1
+        for letter in s:
+            character_count[letter] += 1
 
         for i in range(len(s)):
             if character_count[s[i]] == 1:
