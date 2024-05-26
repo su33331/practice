@@ -9,7 +9,20 @@ class Solution:
 
         character_count = dict()
         for c in s:
-            character_count[c] = character_count.get(c,0) + 1
+            character_count[c] = character_count.get(c, 0) + 1
+
+        for i in range(len(s)):
+            if character_count[s[i]] == 1:
+                return i
+        return -1
+
+###修正版
+from collections import defaultdict
+class Solution:
+    def firstUniqChar(self, s: str) -> int:
+        character_count = defaultdict(int)
+        for c in s:
+            character_count[c] += 1
 
         for i in range(len(s)):
             if character_count[s[i]] == 1:
@@ -30,7 +43,6 @@ class Solution:
                 return i
         return -1
 
-
 '''
 参考にしたもの
 * https://github.com/goto-untrapped/Arai60/pull/17/files
@@ -38,4 +50,6 @@ class Solution:
 * https://github.com/hayashi-ay/leetcode/pull/28/files
 → Counterを使った方法
 → ord()関数:文字をunicodeに変換してくれる。
+#追加で知った情報
+* defaultdict：初期値0で作れるdict.defaultlistもある.
 '''
