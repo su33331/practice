@@ -6,11 +6,9 @@ class Solution:
     def firstUniqChar(self, s: str) -> int:
         if not s:
             return -1
-
         character_count = dict()
         for c in s:
             character_count[c] = character_count.get(c, 0) + 1
-
         for i in range(len(s)):
             if character_count[s[i]] == 1:
                 return i
@@ -23,7 +21,6 @@ class Solution:
         character_count = defaultdict(int)
         for letter in s:
             character_count[letter] += 1
-
         for i in range(len(s)):
             if character_count[s[i]] == 1:
                 return i
